@@ -1,11 +1,16 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native'; 
+import { StyleSheet } from 'react-native';
 
-const App: React.FC = () => { // FC = Function Component, App é do tipo React.FC
+import Routes from './routes';
+import BottomNavigation from './Components/BottomNavigation';
+
+const App: React.FC = () => { 
+
   return (
-    <View style={styles.default}>
-      <Text>Hello World!</Text>
-    </View>
+    <>
+      {/* <Routes/> */}
+      <BottomNavigation/>
+    </>
   );
 };
 
@@ -14,7 +19,7 @@ export default App;
 const styles = StyleSheet.create({
   default: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#c73434',
     alignItems: 'center',
     justifyContent: 'center',
   },
