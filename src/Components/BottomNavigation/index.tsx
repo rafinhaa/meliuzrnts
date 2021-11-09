@@ -17,8 +17,8 @@ const NavigationTabs = () => {
     return (
         <Tabs.Navigator
             screenOptions={{
-                tabBarActiveTintColor: 'black',
-                tabBarInactiveTintColor: 'red',
+                tabBarActiveTintColor: 'red',
+                tabBarInactiveTintColor: 'black',
             }}
         >
             <Tabs.Screen 
