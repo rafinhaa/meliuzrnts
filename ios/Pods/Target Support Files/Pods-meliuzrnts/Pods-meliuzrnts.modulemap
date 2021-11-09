@@ -1,0 +1,6 @@
+module Pods_meliuzrnts {
+  umbrella header "Pods-meliuzrnts-umbrella.h"
+
+  export *
+  module * { export * }
+}

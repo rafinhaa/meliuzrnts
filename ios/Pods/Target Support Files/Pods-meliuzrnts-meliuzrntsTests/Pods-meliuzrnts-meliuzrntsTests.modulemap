@@ -1,0 +1,6 @@
+module Pods_meliuzrnts_meliuzrntsTests {
+  umbrella header "Pods-meliuzrnts-meliuzrntsTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
