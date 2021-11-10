@@ -4,25 +4,53 @@ import { View, Text, StyleSheet, Image } from "react-native";
 
 import api from "../../Services/api";
 
-import { IListStoreDetails } from "../../Types";
+import { IListStoreDetails, stores} from "../../Types";
 
 const Details: React.FC = () => {
     const [storeValue, setStoreValue] = useState(1);
-    const [storeDetails, setStoreDetails] = useState<IListStoreDetails[]>([]);
+    const [storeData, setStoreData] = useState<stores[]>([]);
 
     useEffect(() => {
-        api.get(`discounts?store=1`).then(response => {
-            setStoreDetails(response.data);
-            console.log(storeDetails);
+        api.get(`/stores/?_embed=discounts`).then(response => {
+            setStoreData(response.data);
+            console.log(storeData);
         }).catch(error => console.log(error));
-    }, [storeValue]);
+    }, []);
+
+    const dateParse = (date:string) => {
+        return Intl.DateTimeFormat('pt-BR').format(new Date(date));
+    }
 
     return (
         <View style={styles.default} >
-            <Text style={styles.title}>Details Screen</Text>
-            <Image source={require("../../Assets/Images/desconto.png")} />
-            <Text style={styles.discontLabel} >15% de desconto</Text>
-            <Text style={styles.infoDetails} >R$: 10,00</Text>
+            {
+                storeData.map((store,index) => (
+                    <View key={index} style={styles.styleDetails} >
+                        <Text style={styles.title}>{store.label}</Text>
+                        <Image source={require("../../Assets/Images/desconto.png")} />
+                        {
+                            store.discounts?.map((discount,index) => (
+                                <>
+                                    <Text style={styles.discontLabel} >{discount.value}% de desconto</Text>
+                                    <Text>R$: {discount.value}</Text>
+                                    <Text style={styles.infoDetails} >Válido até {discount.expires_in}</Text>
+                                </>
+                            )) 
+                        }
+                    </View>
+                ))
+            }
+            {
+                // storeData.map((store,index) => (
+                //     <View key={index} style={styles.styleDetails} >
+                //         <Text style={styles.title}>Details Screen</Text>
+                //         <Image source={require("../../Assets/Images/desconto.png")} />
+                //         <Text style={styles.discontLabel} >{store.value}% de desconto</Text>
+                //         <Text>R$: {store.value}</Text>
+                //         <Text style={styles.infoDetails} >Válido até {dateParse(store.expires_in)}</Text>
+                //     </View>
+                // ))
+            }
         </View>
     );
 };
@@ -31,6 +59,9 @@ const styles = StyleSheet.create({
     default: {
         flex: 1,
         justifyContent: "center",
+        alignItems: "center",
+    },
+    styleDetails: {
         alignItems: "center",
     },
     title: {
