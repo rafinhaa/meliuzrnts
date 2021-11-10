@@ -10,6 +10,7 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Home from '../../Screens/Home';
 import Contact from "../../Screens/Contact";
 import List from "../../Screens/List";
+import Details from "../../Screens/Details";
 
 const Tabs = createBottomTabNavigator();
 
@@ -32,22 +33,32 @@ const NavigationTabs = () => {
                 }} 
             />
             <Tabs.Screen 
-                name="Contact" 
-                component={Contact} 
-                options={{
-                    tabBarLabel: 'Contact',
-                    tabBarIcon: ({color,size}) => (
-                        <FontAwesome5 name="address-book" size={size} color={color} />
-                    ) 
-                }} 
-            />
-            <Tabs.Screen 
                 name="List" 
                 component={List} 
                 options={{
                     tabBarLabel: 'list',
                     tabBarIcon: ({color,size}) => (
                         <FontAwesome5 name="list" size={size} color={color} />
+                    ) 
+                }} 
+            />
+            <Tabs.Screen 
+                name="Details" 
+                component={Details} 
+                options={{
+                    tabBarLabel: 'details',
+                    tabBarIcon: ({color,size}) => (
+                        <FontAwesome5 name="info" size={size} color={color} />
+                    ) 
+                }} 
+            />
+            <Tabs.Screen 
+                name="Contact" 
+                component={Contact} 
+                options={{
+                    tabBarLabel: 'Contact',
+                    tabBarIcon: ({color,size}) => (
+                        <FontAwesome5 name="address-book" size={size} color={color} />
                     ) 
                 }} 
             />

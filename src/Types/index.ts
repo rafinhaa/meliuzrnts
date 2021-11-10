@@ -20,3 +20,9 @@ export interface IPosition {
       state: string;
     };
   }
+
+export interface IListStoreDetails {
+  store: number;
+  value: number;
+  expires_in: string;
+}
