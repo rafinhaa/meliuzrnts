@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native'; 
-import MapView, {Marker, Callout, PROVIDER_GOOGLE} from 'react-native-maps';
-import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
+import MapView, {Marker, Callout,} from 'react-native-maps';
 import api from '../../Services/api';
 import {IPosition, IList} from '../../Types';
 
