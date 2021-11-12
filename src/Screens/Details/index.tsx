@@ -1,23 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
+import { useSelector } from 'react-redux'; // useSelecttor é um hook
+import { IGlobalStoreId } from '../../Store/Modules/ListDetails/Types';
 
 import api from '../../Services/api';
 
 import { IListStoreDetails } from '../../Types';
 
 const Details: React.FC = () => {
-    const [storeValue, setStoreValue] = useState(1);
+    const storeId = useSelector((state: IGlobalStoreId) => state.store_id); // Usa o valor que está dentro do estado do redux
+    //const [storeValue, setStoreValue] = useState(1);
     const [storeData, setStoreData] = useState<IListStoreDetails>(
         {} as IListStoreDetails,
     );
 
     useEffect(() => {
         api
-            .get(`discounts?store=${storeValue}`)
+            .get(`discounts?store=${storeId}`)
             .then(response => {
                 if (response.data.length > 0) {
                     api
-                        .get(`stores/${storeValue}`)
+                        .get(`stores/${storeId}`)
                         .then(res => {
                             setStoreData({ ...response.data[0], storeDetails: res.data });
                         })
@@ -25,10 +28,9 @@ const Details: React.FC = () => {
                 }
             })
             .catch(e => console.log(e));
-    }, [storeValue]);
+    }, [storeId]);
 
     const dateParse = (value: string) => {
-        console.log('date', value);
         return Intl.DateTimeFormat('pt-BR').format(new Date(value));
     };
 

@@ -59,8 +59,10 @@ const NavigationTabs = () => {
                     tabBarLabel: 'Contact',
                     tabBarIcon: ({color,size}) => (
                         <FontAwesome5 name="address-book" size={size} color={color} />
-                    ) 
-                }} 
+                    ),
+                    headerShown: false,
+                }
+            } 
             />
         </Tabs.Navigator>
     );

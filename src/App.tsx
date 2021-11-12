@@ -2,6 +2,9 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 
 import Routes from './routes';
+import {Provider} from 'react-redux'; // importando o provider que é o responsavel por conectar o redux ao react
+import store from './Store'; // Esse arquivo contem o estado do redux
+
 import BottomNavigation from './Components/BottomNavigation';
 
 const App: React.FC = () => { 
@@ -9,7 +12,9 @@ const App: React.FC = () => {
   return (
     <>
       {/* <Routes/> */}
-      <BottomNavigation/>
+      <Provider store={store}>
+        <BottomNavigation/>
+      </Provider>
     </>
   );
 };
