@@ -10,6 +10,8 @@ import {
 } from 'react-native'; 
 
 import axios from 'axios';
+import { useSelector } from 'react-redux';
+import { IRootStore } from '../../Store';
 
 const Contact: React.FC = () => { // FC = Function Component, App é do tipo React.FC
   const [name, setName] = useState('');
@@ -17,6 +19,7 @@ const Contact: React.FC = () => { // FC = Function Component, App é do tipo Rea
   const [phone, setPhone] = useState('');
   const [message, setMessage] = useState('');
   const [sendForm, setSendForm] = useState(false);
+  const cupom = useSelector(({GlobalCupom}: IRootStore) => GlobalCupom.cupom); // Usa o valor que está dentro do estado do redux
 
   const handleSubmit = () => {
     if (!name.trim()) {
@@ -61,8 +64,8 @@ const Contact: React.FC = () => { // FC = Function Component, App é do tipo Rea
 
   return (
       <View style={styles.default}>
-        <Text>Contato</Text>
         <Text>Send a Message!</Text>
+        <Text>{cupom}</Text>
         <TextInput
           style={styles.input}
           onChangeText={setName}
@@ -103,6 +106,7 @@ const Contact: React.FC = () => { // FC = Function Component, App é do tipo Rea
           placeholderTextColor="#FFF"
         />
         <Text>Remaining chars: {500 - message.length}</Text>
+        
         <TouchableOpacity 
           style={styles.button}
           onPress={() => handleSubmit()}>

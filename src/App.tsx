@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 
 import Routes from './routes';
 import {Provider} from 'react-redux'; // importando o provider que é o responsavel por conectar o redux ao react
-import store from './Store'; // Esse arquivo contem o estado do redux
+import store from './Store'; // Esse arquivo contem os reducers
 
 import BottomNavigation from './Components/BottomNavigation';
 
