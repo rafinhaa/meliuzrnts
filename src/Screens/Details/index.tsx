@@ -3,7 +3,7 @@ import { View, Text, Image, StyleSheet, TouchableOpacity, Alert } from 'react-na
 import { useSelector, useDispatch} from 'react-redux'; // useSelecttor é um hook
 import addCupom  from '../../Store/Modules/Cupom/Actions'; // importa o action
 import { IRootStore } from '../../Store';
-import { IGlobalStoreId } from '../../Store/Modules/ListDetails/Types';
+
 
 import api from '../../Services/api';
 

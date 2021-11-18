@@ -12,6 +12,7 @@ import {
 import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { IRootStore } from '../../Store';
+import {CardMeliuz} from 'dependenciarnmeliuz';
 
 const Contact: React.FC = () => { // FC = Function Component, App é do tipo React.FC
   const [name, setName] = useState('');
@@ -112,6 +113,7 @@ const Contact: React.FC = () => { // FC = Function Component, App é do tipo Rea
           onPress={() => handleSubmit()}>
           <Text style={styles.buttonText}>Enviar</Text>
         </TouchableOpacity>
+        <CardMeliuz/>
       </View>
   );
 };
