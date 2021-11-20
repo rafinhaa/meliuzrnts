@@ -7,7 +7,7 @@ const Home: React.FC = () => { // FC = Function Component, App é do tipo React.
 
   return (
     <View style={styles.default}>
-      <Image source={require('../../Assets/Images/desconto.png')} />
+      <Image testID="image-home" source={require('../../Assets/Images/desconto.png')} />
     </View>
   );
 };

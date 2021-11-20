@@ -26,16 +26,18 @@ const NavigationTabs = () => {
                 name="Home" 
                 component={Home} 
                 options={{
+                    tabBarTestID: 'home-button',
                     tabBarLabel: 'Home',
                     tabBarIcon: ({color,size}) => (
                         <FontAwesome5 name="home" size={size} color={color} />
-                    ) 
+                    )
                 }} 
             />
             <Tabs.Screen 
                 name="List" 
                 component={List} 
                 options={{
+                    tabBarTestID: 'list-button',
                     tabBarLabel: 'list',
                     tabBarIcon: ({color,size}) => (
                         <FontAwesome5 name="list" size={size} color={color} />
@@ -46,6 +48,7 @@ const NavigationTabs = () => {
                 name="Details" 
                 component={Details} 
                 options={{
+                    tabBarTestID: 'details-button',
                     tabBarLabel: 'details',
                     tabBarIcon: ({color,size}) => (
                         <FontAwesome5 name="info" size={size} color={color} />
@@ -56,6 +59,7 @@ const NavigationTabs = () => {
                 name="Contact" 
                 component={Contact} 
                 options={{
+                    tabBarTestID: 'contact-button',
                     tabBarLabel: 'Contact',
                     tabBarIcon: ({color,size}) => (
                         <FontAwesome5 name="address-book" size={size} color={color} />

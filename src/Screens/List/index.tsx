@@ -40,6 +40,7 @@ const List: React.FC = () => { // FC = Function Component, App é do tipo React.
   return (
     <View style={styles.default}>
       <MapView
+        testID="map-component"
         style={styles.mapStyle}
         region={position}
       >
